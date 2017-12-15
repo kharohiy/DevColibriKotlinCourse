@@ -80,8 +80,69 @@ fun main(args: Array<String>) {
 //    val car = Car(2.00050, 40)
 //
 //    car.isNew = true
-}
 
+    /**
+     * package
+     */
+//    val catA = CatA()
+//    catA.a1()
+//
+//    superMethod1()
+    /**
+     * enum
+     */
+//    val message: Colors = Colors.BLACK
+//    var message2: String = Colors.GREEN.name
+//
+//    println("$message $message2")
+//    println(Colors.WHITE.colorHex)
+//    println("Color: ${Colors.WHITE} opacity: ${Colors.WHITE.opacity}")
+
+    /**
+     * operator when (switch)
+     */
+//    var N = 1
+//    var result = when (N) {
+//        1 -> "One"
+//        2 -> "Two"
+//        3 -> "Three"
+//        4 -> "Four"
+//        else ->
+//            "try again"
+//    }
+//    println(result)
+//
+//    when (setOf(WHITE, BLACK)) {
+//        setOf(BLACK, RED) -> println("черный или красный")
+//        setOf(WHITE, GREEN) -> println("белый-зеленый")
+//    }
+//
+//    var a = 2
+//    var b = 4
+//
+//    when {
+//        (a > b) -> println("$a > $b")
+//        (a < b) -> println("$a < $b")
+//        (a == b) -> println("$a == $b")
+//
+//        else -> println("else")
+//    }
+    /**
+     * interface
+     */
+//    var v1: MyInterface = ClassA()
+//    var v2: MyInterface = ClassB()
+//
+//    v1.func1()
+//    v2.func1()
+    /**
+     * abstract class
+     */
+//    var v1: BaseTemplate = ATemplate()
+//    v1.a()
+//    v1.minus()
+//    v1.a()
+}
 
 fun myFirstFunction(): Int {
     return 66
