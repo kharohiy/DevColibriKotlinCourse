@@ -1,1 +1,1 @@
-class Person(var firstName: String, var lastName: String, val age: Int)
+class Person(var firstName: String, var lastName: String, var age: Int)

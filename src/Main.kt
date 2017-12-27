@@ -1,3 +1,13 @@
+import Colors.*
+import abstracts.ATemplate
+import abstracts.BaseTemplate
+import access.modifiers.Driver
+import access.modifiers.Mouse
+import access.modifiers.MyPerson
+import interfaces.ClassA
+import interfaces.ClassB
+import interfaces.MyInterface
+
 fun main(args: Array<String>) {
     /**
      * example of variables and symbol '$'
@@ -11,13 +21,11 @@ fun main(args: Array<String>) {
 //    println("Hello Kotlin $name")
 //    println("Hello Kotlin \$name")
 //    println("A + B = ${a+b}")
-
-
     /**
      * mutable and unmutable variables var and val
      */
 //    val userJava = UserJava("test@email.com")
-//    print("Java Example: ${userJava.email}")
+//    println("Java Example: ${userJava.email}")
 //
 //    val userKotlin = UserKotlin("test1@email.com")
 //
@@ -30,7 +38,6 @@ fun main(args: Array<String>) {
 //
 //    name = "poi"
 //    name2 = "e"
-
     /**
      * data types
      */
@@ -51,26 +58,25 @@ fun main(args: Array<String>) {
 //
 //    var b3 : Boolean = true
 //
-//    print("$b1 $b2 $c1 $b3")
+//    print("b1:$b1 b2:$b2 c1:$c1 b3:$b3")
     /**
      *function
      */
-//    print("${myFirstFunction()} ${myFirstFunction2(40)} ${myFirstFunction3()}")
+//    println("${myFirstFunction()}")
+//    println("${myFirstFunction2(40)}")
+//    println("${myFirstFunction3()}")
 //
-//    val result = myFirstFunction4(3,4.2)
+//    val result = myFirstFunction4(3, 4.2)
 //    println(result)
-
     /**
      * Null pointer exception(NPE) & Null Safety
      */
 //    val st: String
-//
-//    !! not null assert
+////  !!  - not null assert
 //    st = getSt()!!
 //
 //    val size = st.length
-//    print(size)
-
+//    print(st + " size " + size)
     /**
      * work with classes
      */
@@ -80,13 +86,11 @@ fun main(args: Array<String>) {
 //    val car = Car(2.00050, 40)
 //
 //    car.isNew = true
-
     /**
      * package
      */
 //    val catA = CatA()
 //    catA.a1()
-//
 //    superMethod1()
     /**
      * enum
@@ -96,8 +100,7 @@ fun main(args: Array<String>) {
 //
 //    println("$message $message2")
 //    println(Colors.WHITE.colorHex)
-//    println("Color: ${Colors.WHITE} opacity: ${Colors.WHITE.opacity}")
-
+//    println("Color: ${Colors.WHITE} opacity: ${Colors.WHITE.opacity} Color: ${Colors.BLACK} opacity: ${Colors.BLACK.opacity}")
     /**
      * operator when (switch)
      */
@@ -112,9 +115,11 @@ fun main(args: Array<String>) {
 //    }
 //    println(result)
 //
-//    when (setOf(WHITE, BLACK)) {
-//        setOf(BLACK, RED) -> println("черный или красный")
-//        setOf(WHITE, GREEN) -> println("белый-зеленый")
+//    println(getFavoriteColor(BLACK))
+//
+//    when (setOf(Colors.WHITE, Colors.GREEN)) {
+//        setOf(Colors.BLACK, Colors.RED) -> println("черный-красный")
+//        setOf(Colors.WHITE, Colors.GREEN) -> println("белый-зеленый")
 //    }
 //
 //    var a = 2
@@ -124,7 +129,6 @@ fun main(args: Array<String>) {
 //        (a > b) -> println("$a > $b")
 //        (a < b) -> println("$a < $b")
 //        (a == b) -> println("$a == $b")
-//
 //        else -> println("else")
 //    }
     /**
@@ -142,6 +146,17 @@ fun main(args: Array<String>) {
 //    v1.a()
 //    v1.minus()
 //    v1.a()
+    /**
+     * Modifier open
+     */
+    val myPerson = MyPerson("Alex")
+    val driver = Driver("Alex")
+
+    println(myPerson.getAddress())
+    println(driver.getAddress())
+
+    val mouse = Mouse()
+//    mouse.funA()
 }
 
 fun myFirstFunction(): Int {
@@ -162,4 +177,10 @@ fun myFirstFunction4(a: Long, b: Double) = a + b
 fun getSt(): String? {
 //    throw KotlinNullPointerException()
     return "hello"
+}
+
+fun getFavoriteColor(color: Colors) = when (color) {
+    BLACK, WHITE -> "черный или белый"
+    RED -> "красный"
+    else -> "без цвета"
 }
