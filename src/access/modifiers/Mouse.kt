@@ -1,7 +1,7 @@
 package access.modifiers
 
-class Mouse {
-    private fun funA() {
+open class Mouse {
+    protected fun funA() {
         println("Hello")
     }
 }

@@ -1,12 +1,4 @@
 import Colors.*
-import abstracts.ATemplate
-import abstracts.BaseTemplate
-import access.modifiers.Driver
-import access.modifiers.Mouse
-import access.modifiers.MyPerson
-import interfaces.ClassA
-import interfaces.ClassB
-import interfaces.MyInterface
 
 fun main(args: Array<String>) {
     /**
@@ -25,7 +17,7 @@ fun main(args: Array<String>) {
      * mutable and unmutable variables var and val
      */
 //    val userJava = UserJava("test@email.com")
-//    println("Java Example: ${userJava.email}")
+//    println("Java Exp: ${userJava.email}")
 //
 //    val userKotlin = UserKotlin("test1@email.com")
 //
@@ -147,16 +139,94 @@ fun main(args: Array<String>) {
 //    v1.minus()
 //    v1.a()
     /**
-     * Modifier open
+     * Modifier open, access modifier - private, public(like java package modifier),
+     * protected(access only if class is extended), internal(use for different modules in project)
      */
-    val myPerson = MyPerson("Alex")
-    val driver = Driver("Alex")
+//    val myPerson = MyPerson("Alex")
+//    val driver = Driver("Alex")
+//
+//    println(myPerson.getAddress())
+//    println(driver.getAddress())
+//
+//    val mouse = Mouse()
+////    mouse.funA()
+    /**
+     * loops
+     */
+//    var index: Int = 0
+//    while (index < 10) {
+//        print("${index}")
+//        index++
+//    }
+//
+//    do {
+//        print("${index}")
+//        index++
+//    } while (false)
 
-    println(myPerson.getAddress())
-    println(driver.getAddress())
+    // array
+//    var nums = 1..10
 
-    val mouse = Mouse()
-//    mouse.funA()
+//    for (value in nums) {
+//        print("$value")
+//    }
+//
+//    // loop with step
+//    for (value in nums step 2) {
+//        print("$value ")
+//    }
+//
+//    // loop revert
+//    for (value in 10 downTo 1) {
+//        print("$value ")
+//    }
+//
+//    // loop revert
+//    for (value in 10 downTo 1) {
+//        print("$value ")
+//    }
+//
+//    for (value in 10 downTo 1 step 3) {
+//        print("$value ")
+//    }
+    /**
+     * modifier IN
+     */
+//    var nums = 1..10
+//
+//    val value = 3
+//    val characters = 'a'..'z'
+//    for (num in nums) {
+//        if (num == value) {
+//            println(true)
+//            break
+//        }
+//    }
+//    short version loop over this code
+//    println(value in nums)
+//    println(isChar('z', characters))
+    /**
+     * POJO or data class
+     */
+//    val person = Dataclass("Alex", 27)
+//    val person2 = person.copy(age = 2)
+//    person.age = 25
+//
+//    println(person)
+//    println(person2)
+//
+//    var (name, age) = person
+//    println("Name=$name ,age=$age")
+    /**
+     * class Sealed
+     */
+    val e1 = Exp.Const(1.2)
+    val e2 = Exp.Const(2.2)
+    println(Exp.Sum(e1, e2))
+
+    val sum = Exp.Sum(e1, e2)
+
+    println(eval(sum))
 }
 
 fun myFirstFunction(): Int {
@@ -183,4 +253,13 @@ fun getFavoriteColor(color: Colors) = when (color) {
     BLACK, WHITE -> "черный или белый"
     RED -> "красный"
     else -> "без цвета"
+}
+
+fun isChar(char: Char, characters: CharRange) = char in characters
+
+fun eval(exp: Exp): Double = when (exp) {
+    is Exp.Const -> exp.number
+    is Exp.Sum -> eval(exp.e1) + eval(exp.e2)
+
+    Exp.NotANumber -> Double.NaN
 }
